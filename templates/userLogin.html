@@ -1,0 +1,1173 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- fav icon -->
+    <link rel="icon" href="{% static 'assets/images/logo/cyberlogo.png' %}">
+
+    <!-- bootstarp -->
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap.min.css' %}">
+
+    <!-- animate.css' %} file -->
+    <link rel="stylesheet" href="{% static 'css/vendors/animate.css' %}">
+
+    <!-- flaticon -->
+    <link rel="stylesheet" href="{% static 'css/vendors/flaticon/flaticon.css' %}">
+
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="{% static 'css/vendors/all.min.css' %}">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css' %}">
+
+    <!-- Font Family -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
+
+    <!-- main-LTR -->
+    <link rel="stylesheet" href="{% static 'css/main-LTR.css' %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <title> Network Intrusion Detection </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .scroll-top {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        /* SVG circle */
+        .scroll-top svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        /* CENTER THE ICON */
+        .scroll-top i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #000;
+            /* change if background is dark */
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        :root {
+            --primary: #0d6efd;
+            --accent1: #4e73df;
+            --accent2: #1cc88a;
+            --header-start: rgb(255, 128, 0);
+            --header-end: #004085;
+            --footer-start: var(--accent1);
+            --footer-end: #0b5ed7;
+            --glass: rgba(255, 255, 255, 0.85);
+        }
+
+
+        nav.navmenu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        nav.navmenu a {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 8px;
+            border-radius: 6px;
+        }
+
+        nav.navmenu a.active,
+        nav.navmenu a:hover {
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(78, 115, 223, 0.14);
+            transform: translateY(-1px);
+        }
+
+        .mobile-nav-toggle {
+            font-size: 1.2rem;
+            color: #fff;
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 991.98px) {
+            .navmenu ul {
+                gap: 10px;
+            }
+
+            .mobile-nav-toggle {
+                display: inline-block;
+            }
+        }
+
+        /* Page title */
+        .page-title {
+            padding: 28px 0;
+            background: transparent;
+        }
+
+        .page-title .light-background {
+            /* kept for compatibility */
+        }
+
+        .page-title h1 {
+            margin: 0;
+            color: #0b1220;
+            font-weight: 700;
+        }
+
+        .breadcrumbs ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 8px;
+            color: #64748b;
+        }
+
+        .breadcrumbs a {
+            color: #64748b;
+            text-decoration: none;
+        }
+
+        /* 3D Flip card container - modernized but matches previous visual theme */
+        .card-3d-wrap {
+            perspective: 1200px;
+            width: 660px;
+            max-width: calc(100% - 40px);
+            margin: 0 auto;
+        }
+
+        .card-3d-wrapper {
+            position: relative;
+            width: 100%;
+            height: auto;
+            transform-style: preserve-3d;
+            transition: transform 700ms cubic-bezier(.2, .8, .2, 1);
+            display: flex;
+            gap: 24px;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        /* Checkbox flip toggle (hidden) */
+        .checkbox {
+            display: none;
+        }
+
+        /* When checked, flip the wrapper */
+        .checkbox:checked~.card-3d-wrap .card-3d-wrapper {
+            transform: rotateY(-180deg);
+        }
+
+        .card-front,
+        .card-back {
+            width: 360px;
+            min-height: 520px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 12px;
+            backface-visibility: hidden;
+            box-shadow: 0 12px 32px rgba(16, 24, 40, 0.08);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .card-front {
+            transform: rotateY(0deg);
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* When wrapper flips, show back side properly (rotate the tot wrapper) */
+        .card-3d-wrapper .card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* content inside forms */
+        .section {
+            width: 100%;
+        }
+
+        .form-style {
+            height: 44px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            padding: 8px 12px;
+        }
+
+        .input-icon {
+            font-size: 1.05rem;
+            opacity: .8;
+        }
+
+        .btn {
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-weight: 700;
+        }
+
+        .btn-info {
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            border: none;
+            color: #fff;
+        }
+
+        .btn-success {
+            background: #1cc88a;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-warning {
+            background: #f59e0b;
+            border: none;
+            color: #fff;
+        }
+
+        .shadow-sm {
+            box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
+        }
+
+        .form-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+
+        /* Preloader and Dual-dot spinner */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(7, 10, 20, 0.45);
+            z-index: 2000;
+        }
+
+        .dual-dot {
+            width: 80px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .dual-dot .dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            box-shadow: 0 8px 20px rgba(78, 115, 223, 0.18);
+            animation: dualPulse 1s infinite ease-in-out;
+        }
+
+        .dual-dot .dot.second {
+            animation-delay: .35s;
+            background: linear-gradient(90deg, var(--header-end), var(--accent1));
+        }
+
+        @keyframes dualPulse {
+            0% {
+                transform: scale(0.7);
+                opacity: 0.45;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.7);
+                opacity: 0.45;
+            }
+        }
+
+        /* Centered fade overlay (success/info) */
+        .center-overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2100;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .35s ease;
+        }
+
+        .center-overlay.show {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        .center-overlay .card {
+            min-width: 280px;
+            max-width: 90%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+            border-radius: 12px;
+            padding: 18px 20px;
+            box-shadow: 0 20px 60px rgba(2, 6, 23, 0.35);
+            text-align: center;
+            transform: translateY(-6px);
+            animation: overlayPop .36s ease both;
+        }
+
+        @keyframes overlayPop {
+            from {
+                transform: translateY(8px) scale(.98);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .center-overlay .icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .center-overlay.success .icon {
+            color: #10b981;
+        }
+
+        /* green */
+        .center-overlay.error .icon {
+            color: #ef4444;
+        }
+
+        /* red */
+        .center-overlay.info .icon {
+            color: #0ea5e9;
+        }
+
+        /* blue */
+
+        /* small responsiveness */
+        @media (max-width: 900px) {
+            .card-3d-wrap {
+                width: 100%;
+            }
+
+            .card-front,
+            .card-back {
+                width: 320px;
+                min-height: auto;
+            }
+
+            .card-3d-wrapper {
+                gap: 16px;
+                justify-content: center;
+            }
+        }
+
+        /* small helper text styles to match previous pages */
+        .text-light {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .text-primary {
+            color: var(--accent1);
+            font-weight: 700;
+        }
+
+
+
+        .glass-bg {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.5s ease;
+        }
+
+        .toggle-bell {
+            background: rgb(192, 192, 192);
+            border-radius: 50px;
+            padding: 10px 25px;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-bell:hover {
+            background: rgb(64, 128, 128);
+        }
+
+        .toggle-bell i {
+            font-size: 1.4rem;
+            margin-right: 8px;
+            animation: ring 1.5s ease infinite;
+        }
+
+        @keyframes ring {
+            0% {
+                transform: rotate(0);
+            }
+
+            10% {
+                transform: rotate(15deg);
+            }
+
+            20% {
+                transform: rotate(-10deg);
+            }
+
+            30% {
+                transform: rotate(5deg);
+            }
+
+            40% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(0);
+            }
+        }
+
+        .auth-form {
+            display: none;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .auth-form.active {
+            display: block !important;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body class=" dark-theme ">
+    <!--Start Page Header-->
+    <header class=" page-header   inner-page-header header-basic" id="page-header">
+        <div class="header-search-box">
+            <div class="close-search"></div>
+            <form class="nav-search search-form" role="search" method="get" action="#">
+                <div class="search-wrapper">
+                    <label class="search-lbl">Search for:</label>
+                    <input class="search-input" type="search" placeholder="Search..." name="searchInput"
+                        autofocus="autofocus" />
+                    <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <nav class="menu-navbar">
+                <div class="header-logo"><a class="logo-link" href="#"><img class="logo-img light-logo" loading="lazy"
+                            src="{% static 'assets/images/logo/cyberlogo.png' %}" alt="logo" /><img
+                            class="logo-img  dark-logo" loading="lazy"
+                            src="{% static 'assets/images/logo/cyberlogo.png' %}" alt="logo" /></a></div>
+                <div class="links menu-wrapper ">
+                    <ul class="list-js links-list">
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'home' %}">Home </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'about' %}">about us </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'admin-login' %}">Admin </a></li>
+                        <li class="menu-item has-sub-menu"><a class="menu-link  " href="#0">User<i
+                                    class="fas fa-plus  plus-icon"> </i></a>
+                            <ul class="sub-menu ">
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  "
+                                        href="{% url 'user-login' %}">Login</a></li>
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  "
+                                        href="{% url 'user-login' %}">Register</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'contact' %}">contact us </a></li>
+                    </ul>
+                </div>
+                <div class="controls-box">
+                    <!--Menu Toggler button-->
+                    <div class="control  menu-toggler"><span></span><span></span><span></span></div>
+                    <!--search Icon button-->
+                    <div class="control header-search-btn"><i class="bi bi-search icon"></i></div>
+                    <!--Dark/Light mode button-->
+                    <div class="mode-switcher ">
+                        <div class="switch-inner go-light " title="Switch To Light Mode "><i
+                                class="bi bi-sun icon "></i></div>
+                        <div class="switch-inner go-dark" title="Switch To Dark Mode "><i class="bi bi-moon icon "></i>
+                        </div>
+                    </div>
+                    <!--mini shoping cart-->
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--End Page Header-->
+    <!-- Start inner Page hero-->
+    <section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+        <div class="overlay-photo-image-bg parallax" data-bg-img="{% static 'assets/images/hero/hero-bg-1.jpg' %}"
+            data-bg-opacity="1"></div>
+        <div class="overlay-color" data-bg-opacity=".75"></div>
+        <div class="container">
+            <div class="hero-text-area centerd">
+                <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">User Login / Register</h1>
+                <nav aria-label="breadcrumb ">
+                    <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                        <li class="breadcrumb-item"><a class="breadcrumb-link" href="#0"><i
+                                    class="bi bi-house icon "></i>home</a></li>
+                        <li class="breadcrumb-item active">User Login</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- End inner Page hero-->
+    <!-- Start contact-us -->
+    <section class="contact-us  mega-section  pb-0" id="contact-us">
+        <div class="container">
+            <section class="contact-us-form-section mega-section">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- ================= LEFT SIDE IMAGE ================= -->
+                        <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-center">
+                            <div class="contact-map" data-cue="slideInUp">
+                                <div class="saf_contact_info saf_info_bg wow fadeInLeft" data-wow-duration="1s"
+                                    style="margin-top: 40px;">
+                                    <img src="{% static 'user/img/user_login.jpg' %}" alt="Login Image"
+                                        class="img-fluid rounded-3 shadow-lg" id="authImageSrc"
+                                        style="width: 900px; animation: float 3s ease-in-out infinite; height: 470px;">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- ================= RIGHT SIDE FORMS ================= -->
+                        <div class="col-12 col-lg-6">
+                            <div class="contact-form-panel">
+
+                                <div class="sec-heading centered">
+                                    <div class="content-area">
+                                        <h2 class="title">Welcome Back 👋</h2>
+
+                                    </div>
+                                </div>
+
+                                <div class="contact-form-inputs">
+                                    <div class="custom-form-area input-boxed">
+
+                                        <!-- Toggle -->
+                                        <div class="toggle-wrapper text-center mb-4">
+                                            <div class="toggle-bell" id="toggleBell">
+                                                <i class="bi bi-bell-fill text-primary"></i>
+                                                <span id="toggleText" class="ms-2 fw-bold text-dark">
+                                                    Registration Mode
+                                                </span>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- ================= LOGIN FORM ================= -->
+                                        <form id="loginForm" action="{% url 'user_login_check' %}" method="post"
+                                            class="auth-form active main-form" novalidate>
+                                            {% csrf_token %}
+
+                                            <h4 class="mb-4 text-center fw-bold">Log In</h4>
+
+                                            <div class="row">
+
+                                                <div class="col-12">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="email" name="email"
+                                                            id="loginEmail" required />
+                                                        <label class="input-label">Email <span
+                                                                class="req">*</span></label>
+                                                        <span class="b-border"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="password" name="password"
+                                                            id="loginPassword" required />
+                                                        <label class="input-label">Password <span
+                                                                class="req">*</span></label>
+                                                        <span class="b-border"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12" id="loginOtpSection" style="display:none;">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="text" id="loginOtp" />
+                                                        <label class="input-label">Enter OTP</label>
+                                                        <span class="b-border"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 submit-wrapper">
+                                                    <button type="button" id="loginSendOtp" class="btn-solid w-100 mb-2"
+                                                        onclick="sendOtp('login')">
+                                                        Send OTP
+                                                    </button>
+
+                                                    <button type="button" id="loginVerifyOtp"
+                                                        class="btn-solid w-100 mb-2" onclick="verifyOtp('login')"
+                                                        style="display:none;">
+                                                        Verify OTP
+                                                    </button>
+
+                                                    <button type="submit" id="loginSubmit" class="btn-solid w-100"
+                                                        style="display:none;">
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+
+                                        <!-- ================= REGISTER FORM ================= -->
+                                        <form id="registerForm" action="{% url 'user_register' %}" method="post"
+                                            class="auth-form main-form" style="display:none;" novalidate>
+                                            {% csrf_token %}
+
+                                            <h4 class="mb-4 text-center fw-bold">Register</h4>
+
+                                            <div class="row">
+
+                                                <div class="col-12">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="text" name="name" required />
+                                                        <label class="input-label">Full Name</label>
+                                                        <span class="b-border"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="email" name="email"
+                                                            id="registerEmail" required />
+                                                        <label class="input-label">Email</label>
+                                                        <span class="b-border"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="text" name="mobile" required />
+                                                        <label class="input-label">Mobile</label>
+                                                        <span class="b-border"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="password" name="password"
+                                                            required />
+                                                        <label class="input-label">Password</label>
+                                                        <span class="b-border"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12" id="registerOtpSection" style="display:none;">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="text" id="registerOtp" />
+                                                        <label class="input-label">Enter OTP</label>
+                                                        <span class="b-border"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 submit-wrapper">
+                                                    <button type="button" id="registerSendOtp"
+                                                        class="btn-solid w-100 mb-2" onclick="sendOtp('register')">
+                                                        Send OTP
+                                                    </button>
+
+                                                    <button type="button" id="registerVerifyOtp"
+                                                        class="btn-solid w-100 mb-2" onclick="verifyOtp('register')"
+                                                        style="display:none;">
+                                                        Verify OTP
+                                                    </button>
+
+                                                    <button type="submit" id="registerSubmit" class="btn-solid w-100"
+                                                        style="display:none;">
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- End contact-us -->
+    <!-- Start  page-footer Section-->
+    <footer class="page-footer dark-color-footer" id="page-footer">
+        <div class="overlay-photo-image-bg" data-bg-img="{% static 'assets/images/footerbg.jpg' %}"
+            data-bg-opacity=".25">
+        </div>
+        <div class="container">
+            <div class="row footer-cols">
+                <div class="col-12 col-md-8 col-lg-4  footer-col "><img class="img-fluid footer-logo" loading="lazy"
+                        src="{% static 'assets/images/rgtech-logo.png' %}" alt="logo" width="40px" />
+                    <div class="footer-col-content-wrapper">
+                        <p class="footer-text-about-us ">
+                            Contact us today to discuss your software projects and business needs. Our team delivers
+                            reliable solutions, scalable systems, and innovative technologies tailored to your goals.
+                        </p>
+                    </div>
+                    <div class="form-area ">
+                        <div class="mailchimp-form ">
+                            <form class="one-field-form" method="post" action="javascript:void(0)">
+                                <div class="field-group ">
+                                    <label class="email-label" for="email-input"> Subscribe to our news letter</label>
+                                    <input class="email-input " type="email" value="" name="EMAIL" id="email-input"
+                                        placeholder="Email Address" autocomplete="off" />
+                                    <div class="cta-area">
+                                        <input class="btn-solid subscribe-btn" type="submit" value="Subscribe"
+                                            name="subscribe" />
+                                    </div>
+                                </div><span class="email-notice">*we will not share your personal info</span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2  footer-col ">
+                    <h2 class=" footer-col-title    ">useful links</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu ">
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">Google</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">Dribbble</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">linkedIn</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">wikipedia</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 footer-col ">
+                    <h2 class=" footer-col-title    ">Resources</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu">
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">support</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">dashboard</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">drivers</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">projects</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12     col-lg-4 footer-col ">
+                    <h2 class=" footer-col-title    ">contact information</h2>
+                    <div class="footer-col-content-wrapper">
+                        <div class="contact-info-card"><i class="bi bi-envelope icon"></i><a
+                                class="text-lowercase  info" href="mailto:hr@rgtech.org.in">hr@rgtech.org.in</a>
+                        </div>
+                        <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span
+                                class="text-lowercase  info">H.O: # 79-16-23/1, RAJAHMUNDRY -
+                                533103.</span></div>
+                        <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info"
+                                href="tel:+91 96037 26459">+91 96037 26459 </a></div>
+                        <div class="contact-info-card">
+                            <div class="social-icons">
+                                <div class="sc-wrapper dir-row sc-size-32">
+                                    <ul class="sc-list">
+                                        <li class="sc-item " title="Facebook"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="youtube"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-youtube sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="instagram"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-instagram sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="X"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex justify-content-start">
+                        <p class="creadits">
+
+
+                            &copy; 2026
+                            Created by:
+
+                            <a class="link" href="http://www.rgtech.org.in">RT Tech</a>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-end">
+                        <div class="terms-links"><a href="#0">Terms of Use </a>
+                            | <a href="#0" data-bs-toggle="modal" data-bs-target="#privacyPolicyModal">Privacy
+                                Policy.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End  page-footer Section-->
+    <!-- Start loading-screen Component-->
+    <div class="loading-screen" id="loading-screen"><span class="bar top-bar"></span><span
+            class="bar down-bar"></span><span class="progress-line"></span><span class="loading-counter"> </span></div>
+    <!-- End loading-screen Component-->
+    <!-- Start back-to-top Button-->
+    <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
+    </div>
+    <!-- End back-to-top Button-->
+    <!-- Start privacy-policy-modal-->
+
+    <!-- End privacy-policy-modal-->
+    <script>
+        // ========== INITIAL PAGE SETUP ==========
+
+
+        // ========== OVERLAY POPUP ==========
+        function showOverlay(message, type = 'success', timeout = 2000) {
+            let overlay = document.getElementById('centerOverlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'centerOverlay';
+                overlay.className = 'center-overlay';
+                overlay.innerHTML = `
+                <div id="overlayIcon"></div>
+                <div id="overlayMessage" class="fw-bold mt-2"></div>
+            `;
+                document.body.appendChild(overlay);
+            }
+
+            const icon = document.getElementById('overlayIcon');
+            const msg = document.getElementById('overlayMessage');
+            overlay.className = 'center-overlay ' + (type === 'error' ? 'error' : (type === 'info' ? 'info' : 'success'));
+            icon.innerHTML = (type === 'error')
+                ? '<i class="bi bi-x-circle-fill"></i>'
+                : (type === 'info')
+                    ? '<i class="bi bi-info-circle-fill"></i>'
+                    : '<i class="bi bi-check-circle-fill"></i>';
+            msg.textContent = message;
+
+            overlay.classList.add('show');
+            setTimeout(() => overlay.classList.remove('show'), timeout);
+        }
+
+        // ========== SEND OTP ==========
+        function sendOtp(type) {
+
+            // ================= LOGIN =================
+            if (type === "login") {
+
+                const email = document.getElementById("loginEmail").value.trim();
+                const password = document.getElementById("loginPassword").value.trim();
+
+                if (email === "" || password === "") {
+                    Swal.fire({ icon: "warning", title: "Required", text: "Enter Email & Password" });
+                    return;
+                }
+
+                fetch(`/user/check-login/?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`)
+                    .then(r => r.text())
+                    .then(res => {
+                        if (res !== "valid") {
+                            Swal.fire({ icon: "error", title: "Invalid", text: "Incorrect Email or Password" });
+                        } else {
+                            sendOtpNow(email, type);
+                        }
+                    });
+            }
+
+            // ================= REGISTER =================
+            else {
+
+                const form = document.getElementById("registerForm");
+
+                const name = form.querySelector('input[name="name"]').value.trim();
+                const email = document.getElementById("registerEmail").value.trim();
+                const mobile = form.querySelector('input[name="mobile"]').value.trim();
+                const password = form.querySelector('input[name="password"]').value.trim();
+
+                if (name === "" || email === "" || mobile === "" || password === "") {
+                    Swal.fire({ icon: "warning", title: "Fill All Fields" });
+                    return;
+                }
+
+                fetch(`/user/check-register/?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&mobile=${encodeURIComponent(mobile)}&password=${encodeURIComponent(password)}`)
+                    .then(r => r.text())
+                    .then(res => {
+                        if (res === "empty") {
+                            Swal.fire({ icon: "warning", title: "Fill All Fields" });
+                        }
+                        else if (res === "exists") {
+                            Swal.fire({ icon: "error", title: "Email Exists" });
+                        }
+                        else {
+                            sendOtpNow(email, type);
+                        }
+                    });
+            }
+        }
+
+
+        // ================= SEND OTP =================
+        function sendOtpNow(email, type) {
+            fetch("/user/send-otp/?email=" + encodeURIComponent(email))
+                .then(r => r.text())
+                .then(res => {
+                    if (res === "sent") {
+                        Swal.fire({ icon: "success", title: "OTP Sent to your Email" });
+
+                        document.getElementById(type + 'SendOtp').style.display = 'none';
+                        document.getElementById(type + 'OtpSection').style.display = 'block';
+                        document.getElementById(type + 'VerifyOtp').style.display = 'block';
+                    } else {
+                        Swal.fire({ icon: "error", title: "OTP Failed", text: "Email sending failed!" });
+                    }
+                });
+        }
+
+
+        // ================= VERIFY OTP =================
+        function verifyOtp(type) {
+
+            const email = (type === 'login')
+                ? document.getElementById("loginEmail").value.trim()
+                : document.getElementById("registerEmail").value.trim();
+
+            const otp = (type === 'login')
+                ? document.getElementById("loginOtp").value.trim()
+                : document.getElementById("registerOtp").value.trim();
+
+            if (otp === "") {
+                Swal.fire({ icon: 'warning', title: 'OTP Required', text: 'Please enter the OTP.' });
+                return;
+            }
+
+            fetch(`/user/verify-otp/?email=${encodeURIComponent(email)}&otp=${encodeURIComponent(otp)}`)
+                .then(r => r.text())
+                .then(res => {
+
+                    if (res === "verified") {
+                        Swal.fire({ icon: 'success', title: 'OTP Verified' });
+
+                        document.getElementById(type + 'VerifyOtp').style.display = 'none';
+                        document.getElementById(type + 'OtpSection').style.display = 'none';
+                        document.getElementById(type + 'Submit').style.display = 'block';
+
+                    } else {
+                        Swal.fire({ icon: 'error', title: 'Invalid OTP', text: 'Wrong OTP!' });
+                    }
+                });
+        }
+
+
+        // ========== OPTIONAL FORM FEEDBACK ==========
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+
+            loginForm?.addEventListener('submit', function () {
+                showOverlay('Logging in...', 'info', 1200);
+            });
+
+            registerForm?.addEventListener('submit', function () {
+                showOverlay('Registering...', 'info', 1200);
+            });
+        });
+    </script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        let successMsg = /*[[${success}]]*/ null;
+        let errorMsg = /*[[${error}]]*/ null;
+
+        if (successMsg) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: successMsg,
+                confirmButtonColor: '#28a745',
+                timer: 2500
+            });
+        }
+
+        if (errorMsg) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: errorMsg,
+                confirmButtonColor: '#d33',
+                timer: 2500
+            });
+        }
+        /*]]>*/
+
+        const toggleBell = document.getElementById("toggleBell");
+        const toggleText = document.getElementById("toggleText");
+
+        const loginForm = document.getElementById("loginForm");
+        const registerForm = document.getElementById("registerForm");
+        const authImage = document.getElementById("authImageSrc");
+
+        let isLogin = true;
+
+        // Initial State
+        registerForm.classList.remove("active");
+        registerForm.style.display = "none";
+        loginForm.classList.add("active");
+
+        toggleBell.addEventListener("click", () => {
+            isLogin = !isLogin;
+
+            if (isLogin) {
+                // LOGIN
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+
+                loginForm.classList.add("active");
+                registerForm.classList.remove("active");
+
+                toggleText.innerText = "Registration Mode";
+
+            } else {
+                // REGISTER
+                registerForm.style.display = "block";
+                loginForm.style.display = "none";
+
+                registerForm.classList.add("active");
+                loginForm.classList.remove("active");
+
+                toggleText.innerText = "Login Mode";
+            }
+        });
+    </script>
+    {% if success %}
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Registration Successful 🎉',
+            text: "{{ success|escapejs }}",
+            confirmButtonColor: '#28a745'
+        });
+    </script>
+    {% endif %}
+
+    {% if error %}
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: "{{ error|escapejs }}",
+            confirmButtonColor: '#d33'
+        });
+    </script>
+    {% endif %}
+    <!--     JQuery     -->
+    <script src="{% static 'js/vendors/jquery-3.6.1.min.js' %}"></script>
+
+    <!--     bootstrap     -->
+    <script src="{% static 'js/vendors/bootstrap.bundle.min.js' %}"></script>
+
+    <!--     wow     -->
+    <script src="{% static 'js/vendors/wow.min.js' %}"></script>
+
+    <!--     main     -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

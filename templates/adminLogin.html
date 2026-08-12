@@ -1,0 +1,826 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- fav icon -->
+    <link rel="icon" href="{% static 'assets/images/logo/cyberlogo.png' %}">
+
+    <!-- bootstarp -->
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap.min.css' %}">
+
+    <!-- animate.css' %} file -->
+    <link rel="stylesheet" href="{% static 'css/vendors/animate.css' %}">
+
+    <!-- flaticon -->
+    <link rel="stylesheet" href="{% static 'css/vendors/flaticon/flaticon.css' %}">
+
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="{% static 'css/vendors/all.min.css' %}">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css' %}">
+
+    <!-- Font Family -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
+
+    <!-- main-LTR -->
+    <link rel="stylesheet" href="{% static 'css/main-LTR.css' %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <title> Network Intrusion Detection </title>
+
+    <style>
+        .scroll-top {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        /* SVG circle */
+        .scroll-top svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        /* CENTER THE ICON */
+        .scroll-top i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #000;
+            /* change if background is dark */
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        :root {
+            --primary: #0d6efd;
+            --accent1: #4e73df;
+            --accent2: #1cc88a;
+            --muted: #6c757d;
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --glass: rgba(255, 255, 255, 0.06);
+            --header-gradient-start: rgb(255, 128, 0);
+            --header-gradient-end: #004085;
+        }
+
+
+
+
+        /* -----------------------------
+       Page Title
+       ----------------------------- */
+        .page-title {
+            padding: 28px 0;
+        }
+
+        .light-background {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        /* -----------------------------
+       Hero / Login area
+       ----------------------------- */
+        .hero {
+            padding: 48px 0;
+            position: relative;
+            overflow: visible;
+        }
+
+        .dark-background {
+            background: linear-gradient(180deg, rgba(4, 18, 84, 0.04), rgba(255, 255, 255, 0));
+            border-radius: 12px;
+            padding-bottom: 34px;
+        }
+
+        /* Reuse admin css classes but ensure responsive layout */
+        .container-login100 {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .login100-form-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--accent1);
+            display: block;
+            text-align: center;
+        }
+
+        /* Buttons glow */
+        .btn-glow {
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(78, 115, 223, 0.12);
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Input look aligned to admin main.css but ensure visibility */
+        .input100 {
+            width: 100%;
+            padding: 12px 40px 12px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(16, 24, 40, 0.06);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .wrap-input100 {
+            position: relative;
+        }
+
+        .symbol-input100 {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+        }
+
+        /* Right image card */
+        .login100-pic {
+            border-radius: 12px;
+            padding: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(250, 250, 250, 0.9));
+            box-shadow: 0 12px 30px rgba(16, 24, 40, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer (match Home page) */
+
+
+        /* Scroll Top */
+        .scroll-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: var(--accent1);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(78, 115, 223, 0.14);
+            z-index: 60;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 991.98px) {
+            .sitename {
+                font-size: 1.05rem;
+            }
+
+            .navmenu ul {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .container-login100 {
+                gap: 16px;
+            }
+
+            .wrap-login100,
+            .login100-pic {
+                width: 100%;
+                max-width: 100%;
+                padding: 16px;
+            }
+        }
+
+        /* -----------------------------
+       Dual-dot / AI-style pulse preloader
+       ----------------------------- */
+
+        .dual-pulse .dot:nth-child(2) {
+            animation-delay: 0.18s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.6);
+                opacity: 0.6;
+                filter: blur(0px);
+            }
+
+            50% {
+                transform: scale(1.25);
+                opacity: 1;
+                filter: blur(0);
+            }
+
+            100% {
+                transform: scale(0.6);
+                opacity: 0.6;
+            }
+        }
+
+        /* -----------------------------
+       Centered success overlay (fade in/out)
+       ----------------------------- */
+    </style>
+</head>
+
+<body class=" dark-theme ">
+    <!--Start Page Header-->
+    <header class=" page-header   inner-page-header header-basic" id="page-header">
+        <div class="header-search-box">
+            <div class="close-search"></div>
+            <form class="nav-search search-form" role="search" method="get" action="#">
+                <div class="search-wrapper">
+                    <label class="search-lbl">Search for:</label>
+                    <input class="search-input" type="search" placeholder="Search..." name="searchInput"
+                        autofocus="autofocus" />
+                    <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <nav class="menu-navbar">
+                <div class="header-logo"><a class="logo-link" href="#"><img class="logo-img light-logo" loading="lazy"
+                            src="{% static 'assets/images/logo/cyberlogo.png' %}" alt="logo" /><img
+                            class="logo-img  dark-logo" loading="lazy"
+                            src="{% static 'assets/images/logo/cyberlogo.png' %}" alt="logo" /></a></div>
+                <div class="links menu-wrapper ">
+                    <ul class="list-js links-list">
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'home' %}">Home </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'about' %}">about us </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'admin-login' %}">Admin </a></li>
+                        <li class="menu-item has-sub-menu"><a class="menu-link  " href="#0">User<i
+                                    class="fas fa-plus  plus-icon"> </i></a>
+                            <ul class="sub-menu ">
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  "
+                                        href="{% url 'user-login' %}">Login</a></li>
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  "
+                                        href="{% url 'user-login' %}">Register</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'contact' %}">contact us </a></li>
+                    </ul>
+                </div>
+                <div class="controls-box">
+                    <!--Menu Toggler button-->
+                    <div class="control  menu-toggler"><span></span><span></span><span></span></div>
+                    <!--search Icon button-->
+                    <div class="control header-search-btn"><i class="bi bi-search icon"></i></div>
+                    <!--Dark/Light mode button-->
+                    <div class="mode-switcher ">
+                        <div class="switch-inner go-light " title="Switch To Light Mode "><i
+                                class="bi bi-sun icon "></i></div>
+                        <div class="switch-inner go-dark" title="Switch To Dark Mode "><i class="bi bi-moon icon "></i>
+                        </div>
+                    </div>
+                    <!--mini shoping cart-->
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--End Page Header-->
+    <!-- Start inner Page hero-->
+    <section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+        <div class="overlay-photo-image-bg parallax" data-bg-img="{% static 'assets/images/hero/hero-bg-1.jpg' %}"
+            data-bg-opacity="1"></div>
+        <div class="overlay-color" data-bg-opacity=".75"></div>
+        <div class="container">
+            <div class="hero-text-area centerd">
+                <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">Admin Login</h1>
+                <nav aria-label="breadcrumb ">
+                    <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                        <li class="breadcrumb-item"><a class="breadcrumb-link" href="#0"><i
+                                    class="bi bi-house icon "></i>home</a></li>
+                        <li class="breadcrumb-item active">admin login</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- End inner Page hero-->
+    <!-- Start contact-us -->
+    <section class="contact-us  mega-section  pb-0" id="contact-us">
+        <div class="container">
+            <section class="contact-us-form-section mega-section">
+
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- ================= LEFT SIDE IMAGE ================= -->
+                        <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-center">
+
+                            <div class="login100-pic">
+                                <img src="{% static 'admin/img/admin_login.jpg' %}" alt="Admin Login Illustration"
+                                    class="img-fluid rounded shadow" style="max-height:500px;">
+                            </div>
+
+                        </div>
+
+
+                        <!-- ================= RIGHT SIDE ADMIN LOGIN FORM ================= -->
+                        <div class="col-12 col-lg-6">
+
+                            <div class="contact-form-panel">
+
+                                <!-- Heading -->
+                                <div class="sec-heading centered">
+                                    <div class="content-area">
+                                        <h2 class="title">Admin Login</h2>
+                                        <p class="text-muted">Manage users and system security</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="contact-form-inputs">
+                                    <div class="custom-form-area input-boxed">
+
+                                        <!-- ===== ADMIN LOGIN FORM ===== -->
+                                        <form class="main-form" action="{% url 'admin_login_check' %}" method="post"
+                                            id="adminLoginForm">
+
+                                            {% csrf_token %}
+
+                                            <span class="done-msg"></span>
+
+                                            <div class="row">
+
+                                                <!-- EMAIL -->
+                                                <div class="col-12">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="email" name="email" id="email"
+                                                            required />
+                                                        <label class="input-label" for="email">
+                                                            Email <span class="req">*</span>
+                                                        </label>
+                                                        <span class="b-border"></span>
+                                                        <span class="error-msg"></span>
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- PASSWORD -->
+                                                <div class="col-12">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="password" name="password"
+                                                            id="password" required />
+                                                        <label class="input-label" for="password">
+                                                            Password <span class="req">*</span>
+                                                        </label>
+                                                        <span class="b-border"></span>
+                                                        <span class="error-msg"></span>
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- OTP -->
+                                                <div class="col-12" id="otpSection" style="display:none;">
+                                                    <div class="input-wrapper">
+                                                        <input class="text-input" type="text" id="otp" name="otp" />
+                                                        <label class="input-label" for="otp">
+                                                            Enter OTP
+                                                        </label>
+                                                        <span class="b-border"></span>
+                                                        <span class="error-msg"></span>
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- SEND OTP -->
+                                                <div class="col-12 submit-wrapper mb-2" id="sendOtpBtnContainer">
+                                                    <button type="button" class="btn-solid w-100" onclick="sendOtp()">
+                                                        Send OTP
+                                                    </button>
+                                                </div>
+
+
+                                                <!-- VERIFY OTP -->
+                                                <div class="col-12 submit-wrapper mb-2" id="verifyOtpBtnContainer"
+                                                    style="display:none;">
+                                                    <button type="button" class="btn-solid w-100" onclick="verifyOtp()">
+                                                        Verify OTP
+                                                    </button>
+                                                </div>
+
+
+                                                <!-- LOGIN -->
+                                                <div class="col-12 submit-wrapper" id="loginBtnContainer"
+                                                    style="display:none;">
+                                                    <button type="submit" class="btn-solid w-100">
+                                                        Login
+                                                    </button>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- MESSAGE AREA -->
+                                            <p class="form-messages mt-3 text-center"></p>
+
+                                            <div class="text-center mt-3">
+                                                <span>Forgot </span>
+                                                <a href="#">Username / Password?</a>
+                                            </div>
+
+                                        </form>
+                                        <!-- ===== END FORM ===== -->
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </section>
+    <!-- End contact-us -->
+    <!-- Start  page-footer Section-->
+    <footer class="page-footer dark-color-footer" id="page-footer">
+        <div class="overlay-photo-image-bg" data-bg-img="{% static 'assets/images/footerbg.jpg' %}"
+            data-bg-opacity=".25">
+        </div>
+        <div class="container">
+            <div class="row footer-cols">
+                <div class="col-12 col-md-8 col-lg-4  footer-col "><img class="img-fluid footer-logo" loading="lazy"
+                        src="{% static 'assets/images/rgtech-logo.png' %}" alt="logo" width="40px" />
+                    <div class="footer-col-content-wrapper">
+                        <p class="footer-text-about-us ">
+                            Contact us today to discuss your software projects and business needs. Our team delivers
+                            reliable solutions, scalable systems, and innovative technologies tailored to your goals.
+                        </p>
+                    </div>
+                    <div class="form-area ">
+                        <div class="mailchimp-form ">
+                            <form class="one-field-form" method="post" action="javascript:void(0)">
+                                <div class="field-group ">
+                                    <label class="email-label" for="email-input"> Subscribe to our news letter</label>
+                                    <input class="email-input " type="email" value="" name="EMAIL" id="email-input"
+                                        placeholder="Email Address" autocomplete="off" />
+                                    <div class="cta-area">
+                                        <input class="btn-solid subscribe-btn" type="submit" value="Subscribe"
+                                            name="subscribe" />
+                                    </div>
+                                </div><span class="email-notice">*we will not share your personal info</span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2  footer-col ">
+                    <h2 class=" footer-col-title    ">useful links</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu ">
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">Google</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">Dribbble</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">linkedIn</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">wikipedia</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 footer-col ">
+                    <h2 class=" footer-col-title    ">Resources</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu">
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">support</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">dashboard</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">drivers</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">projects</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12     col-lg-4 footer-col ">
+                    <h2 class=" footer-col-title    ">contact information</h2>
+                    <div class="footer-col-content-wrapper">
+                        <div class="contact-info-card"><i class="bi bi-envelope icon"></i><a
+                                class="text-lowercase  info" href="mailto:hr@rgtech.org.in">hr@rgtech.org.in</a>
+                        </div>
+                        <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span
+                                class="text-lowercase  info">H.O: # 79-16-23/1, RAJAHMUNDRY -
+                                533103.</span></div>
+                        <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info"
+                                href="tel:+91 96037 26459">+91 96037 26459 </a></div>
+                        <div class="contact-info-card">
+                            <div class="social-icons">
+                                <div class="sc-wrapper dir-row sc-size-32">
+                                    <ul class="sc-list">
+                                        <li class="sc-item " title="Facebook"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="youtube"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-youtube sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="instagram"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-instagram sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="X"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex justify-content-start">
+                        <p class="creadits">
+
+
+                            &copy; 2026
+                            Created by:
+
+                            <a class="link" href="http://www.rgtech.org.in">RT Tech</a>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-end">
+                        <div class="terms-links"><a href="#0">Terms of Use </a>
+                            | <a href="#0" data-bs-toggle="modal" data-bs-target="#privacyPolicyModal">Privacy
+                                Policy.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End  page-footer Section-->
+    <!-- Start loading-screen Component-->
+    <div class="loading-screen" id="loading-screen"><span class="bar top-bar"></span><span
+            class="bar down-bar"></span><span class="progress-line"></span><span class="loading-counter"> </span></div>
+    <!-- End loading-screen Component-->
+    <!-- Start back-to-top Button-->
+    <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
+    </div>
+    <!-- End back-to-top Button-->
+    <!-- Start privacy-policy-modal-->
+
+    <!-- End privacy-policy-modal-->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        function sendOtp() {
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (!email || !password) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Required",
+                    text: "Enter email and password first."
+                });
+                return;
+            }
+
+            showPreloader(true);
+
+            fetch(
+                "/admin/send-otp/?email=" +
+                encodeURIComponent(email) +
+                "&password=" +
+                encodeURIComponent(password)
+            )
+                .then(res => res.text())
+                .then(result => {
+                    result = result.trim();   // ⭐ IMPORTANT
+                    console.log("Server response:", result);
+                    showPreloader(false);
+
+                    if (result === "sent") {
+                        Swal.fire({
+                            icon: "success",
+                            title: "OTP Sent",
+                            text: "OTP sent to admin email.",
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+
+                        document.getElementById("otpSection").style.display = "block";
+                        document.getElementById("sendOtpBtnContainer").style.display = "none";
+                        document.getElementById("verifyOtpBtnContainer").style.display = "block";
+                    }
+                    else if (result === "invalid_user") {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Unauthorized",
+                            text: "Not a superuser email."
+                        });
+                    }
+                    else if (result === "invalid_password") {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Wrong Password",
+                            text: "Password is incorrect."
+                        });
+                    }
+                    else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: "Something went wrong."
+                        });
+                    }
+                });
+        }
+
+
+        function verifyOtp() {
+            const email = document.getElementById("email").value.trim();
+            const otp = document.getElementById("otp").value.trim();
+
+            if (!otp) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "OTP Required",
+                    text: "Please enter the OTP sent to your email.",
+                });
+                return;
+            }
+
+            showPreloader(true);
+
+            fetch("/admin/verify-otp/?email=" + encodeURIComponent(email) + "&otp=" + encodeURIComponent(otp))
+                .then(response => response.text())
+                .then(result => {
+                    showPreloader(false);
+
+                    if (result === "verified") {
+
+                        Swal.fire({
+                            icon: "success",
+                            title: "OTP Verified!",
+                            text: "OTP verified. Please click Login to continue.",
+                            timer: 1800,
+                            showConfirmButton: false
+                        });
+
+                        // Unlock login button only
+                        document.getElementById("verifyOtpBtnContainer").style.display = "none";
+                        document.getElementById("otpSection").style.display = "none";
+                        document.getElementById("loginBtnContainer").style.display = "block";
+
+                    } else {
+                        Swal.fire({
+                            icon: "error",
+                            title: "Invalid OTP",
+                            text: "Incorrect or expired OTP. Please try again.",
+                        });
+                    }
+                })
+                .catch(() => {
+                    showPreloader(false);
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: "Something went wrong while verifying OTP.",
+                    });
+                });
+        }
+
+
+        function showPreloader(show) {
+            const pre = document.getElementById('preloader');
+            if (!pre) return;
+            pre.style.display = show ? 'flex' : 'none';
+        }
+
+        const overlay = document.getElementById('successOverlay');
+        const overlayCloseBtn = document.getElementById('overlayCloseBtn');
+
+        function showOverlay(title, message, autoHideMs) {
+            document.getElementById('overlayTitle').textContent = title || 'Success';
+            document.getElementById('overlayMessage').textContent = message || '';
+            overlay.classList.add('show');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (autoHideMs && autoHideMs > 0) setTimeout(hideOverlay, autoHideMs);
+        }
+
+        function hideOverlay() {
+            overlay.classList.remove('show');
+            overlay.setAttribute('aria-hidden', 'true');
+        }
+        overlayCloseBtn && overlayCloseBtn.addEventListener('click', hideOverlay);
+
+        document.getElementById('adminLoginForm').addEventListener('submit', function () {
+            showPreloader(true);
+        });
+
+        var scrollTopBtn = document.getElementById('scroll-top');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 400) {
+                    scrollTopBtn.style.opacity = '1';
+                    scrollTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    scrollTopBtn.style.opacity = '0';
+                    scrollTopBtn.style.pointerEvents = 'none';
+                }
+            });
+            scrollTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.AOS) AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
+        });
+    </script>
+    <span id="djangoSuccess" style="display:none;">{{ success }}</span>
+    <span id="djangoError" style="display:none;">{{ error }}</span>
+
+
+    <!-- Django server-side alerts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const successMsg = document.getElementById("djangoSuccess")?.innerText.trim();
+            const errorMsg = document.getElementById("djangoError")?.innerText.trim();
+
+            if (successMsg) {
+                showOverlay("Success!", successMsg, 2800);
+            }
+
+            if (errorMsg) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops!",
+                    text: errorMsg,
+                    confirmButtonText: "Retry"
+                });
+            }
+        });
+    </script>
+
+
+    <!--     JQuery     -->
+    <script src="{% static 'js/vendors/jquery-3.6.1.min.js' %}"></script>
+
+    <!--     bootstrap     -->
+    <script src="{% static 'js/vendors/bootstrap.bundle.min.js' %}"></script>
+
+    <!--     wow     -->
+    <script src="{% static 'js/vendors/wow.min.js' %}"></script>
+
+    <!--     main     -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

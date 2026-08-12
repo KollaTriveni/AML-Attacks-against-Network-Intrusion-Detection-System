@@ -1,0 +1,360 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="IT Solutions &amp; Business Services Responsive HTML5 Bootstrap5  Website Template">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- fav icon -->
+    <link rel="icon" href="{% static 'assets/images/logo/cyberlogo.png' %}">
+
+    <!-- bootstarp -->
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap.min.css' %}">
+
+    <!-- animate.css' %} file -->
+    <link rel="stylesheet" href="{% static 'css/vendors/animate.css' %}">
+
+    <!-- flaticon -->
+    <link rel="stylesheet" href="{% static 'css/vendors/flaticon/flaticon.css' %}">
+
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="{% static 'css/vendors/all.min.css' %}">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="{% static 'css/vendors/bootstrap-icons-1.9.1/bootstrap-icons.css' %}">
+
+    <!-- Font Family -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&amp;display=swap">
+
+    <!-- main-LTR -->
+    <link rel="stylesheet" href="{% static 'css/main-LTR.css' %}">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <title> Network Intrusion Detection </title>
+</head>
+
+<body class=" dark-theme ">
+    <!--Start Page Header-->
+    <header class=" page-header   inner-page-header header-basic" id="page-header">
+        <div class="header-search-box">
+            <div class="close-search"></div>
+            <form class="nav-search search-form" role="search" method="get" action="#">
+                <div class="search-wrapper">
+                    <label class="search-lbl">Search for:</label>
+                    <input class="search-input" type="search" placeholder="Search..." name="searchInput"
+                        autofocus="autofocus" />
+                    <button class="search-btn" type="submit"><i class="bi bi-search icon"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <nav class="menu-navbar">
+                <div class="header-logo"><a class="logo-link" href="#"><img class="logo-img light-logo" loading="lazy"
+                            src="{% static 'assets/images/logo/cyberlogo.png' %}" alt="logo" /><img
+                            class="logo-img  dark-logo" loading="lazy"
+                            src="{% static 'assets/images/logo/cyberlogo.png' %}" alt="logo" /></a></div>
+                <div class="links menu-wrapper ">
+                    <ul class="list-js links-list">
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'home' %}">Home </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'about' %}">about us </a></li>
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'admin-login' %}">Admin </a></li>
+                        <li class="menu-item has-sub-menu"><a class="menu-link  " href="#0">User<i
+                                    class="fas fa-plus  plus-icon"> </i></a>
+                            <ul class="sub-menu ">
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  "
+                                        href="{% url 'user-login' %}">Login</a></li>
+                                <li class="menu-item sub-menu-item"><a class="menu-link sub-menu-link  "
+                                        href="{% url 'user-login' %}">Register</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="menu-item"><a class="menu-link  " href="{% url 'contact' %}">contact us </a></li>
+                    </ul>
+                </div>
+                <div class="controls-box">
+                    <!--Menu Toggler button-->
+                    <div class="control  menu-toggler"><span></span><span></span><span></span></div>
+                    <!--search Icon button-->
+                    <div class="control header-search-btn"><i class="bi bi-search icon"></i></div>
+                    <!--Dark/Light mode button-->
+                    <div class="mode-switcher ">
+                        <div class="switch-inner go-light " title="Switch To Light Mode "><i
+                                class="bi bi-sun icon "></i></div>
+                        <div class="switch-inner go-dark" title="Switch To Dark Mode "><i class="bi bi-moon icon "></i>
+                        </div>
+                    </div>
+                    <!--mini shoping cart-->
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--End Page Header-->
+    <!-- Start inner Page hero-->
+    <section class="d-flex align-items-center page-hero  inner-page-hero " id="page-hero">
+        <div class="overlay-photo-image-bg parallax" data-bg-img="{% static 'assets/images/hero/hero-bg-1.jpg' %}"
+            data-bg-opacity="1"></div>
+        <div class="overlay-color" data-bg-opacity=".75"></div>
+        <div class="container">
+            <div class="hero-text-area centerd">
+                <h1 class="hero-title  wow fadeInUp" data-wow-delay=".2s">Contact Us</h1>
+                <nav aria-label="breadcrumb ">
+                    <ul class="breadcrumb wow fadeInUp" data-wow-delay=".6s">
+                        <li class="breadcrumb-item"><a class="breadcrumb-link" href="#0"><i
+                                    class="bi bi-house icon "></i>home</a></li>
+                        <li class="breadcrumb-item active">contact us</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <!-- End inner Page hero-->
+    <!-- Start contact-us -->
+    <section class="contact-us  mega-section  pb-0" id="contact-us">
+        <div class="container">
+
+            <section class="map-section  elf-section">
+                <div class="sec-heading  centered   ">
+                    <div class="content-area">
+                        <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">find us on google maps</h2>
+                    </div>
+                </div>
+                <div class="map-box  wow fadeInUp" data-wow-delay=".6s">
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe class="map-iframe" id="gmap_canvas"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202.13367174779899!2d81.79181258210521!3d17.00455476330272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37a39661b5cf55%3A0xaaa9f2e6d740629c!2spuhorit!5e1!3m2!1sen!2sin!4v1767587063829!5m2!1sen!2sin"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="contact-us-form-section  mega-section  ">
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="contact-form-panel">
+                            <div class="sec-heading centered    ">
+                                <div class="content-area">
+                                    <h2 class=" title    wow fadeInUp" data-wow-delay=".4s">Have any questions? Let's
+                                        answer them</h2>
+                                </div>
+                            </div>
+                            <div class="contact-form-inputs wow fadeInUp" data-wow-delay=".6s">
+                                <div class="custom-form-area input-boxed">
+                                    <!--Form To have user messages-->
+                                    <form class="main-form" id="contact-us-form" action="{% url 'contact' %}"
+                                        method="post"><span class="done-msg"></span>
+                                        <div class="row ">
+                                            <div class="col-12 col-lg-6">
+                                                <div class="   input-wrapper">
+                                                    <input class="text-input" id="user-name" name="UserName"
+                                                        type="text" />
+                                                    <label class="input-label" for="user-name"> Name <span
+                                                            class="req">*</span></label><span
+                                                        class="b-border"></span><span class="error-msg"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-lg-6">
+                                                <div class="   input-wrapper">
+                                                    <input class="text-input" id="user-email" name="UserEmail"
+                                                        type="email" />
+                                                    <label class="input-label" for="user-email"> E-mail <span
+                                                            class="req">*</span></label><span
+                                                        class="b-border"></span><span class="error-msg"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 ">
+                                                <div class="   input-wrapper">
+                                                    <input class="text-input" id="msg-subject" name="subject"
+                                                        type="text" />
+                                                    <label class="input-label" for="msg-subject"> Subject <span
+                                                            class="req">*</span></label><span
+                                                        class="b-border"></span><span class="error-msg"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 ">
+                                                <div class="   input-wrapper">
+                                                    <textarea class=" text-input" id="msg-text"
+                                                        name="message"></textarea>
+                                                    <label class="input-label" for="msg-text"> your message <span
+                                                            class="req">*</span></label><span
+                                                        class="b-border"></span><i></i><span class="error-msg"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 submit-wrapper">
+                                                <button class=" btn-solid" id="submit-btn" type="submit"
+                                                    name="UserSubmit">Send your message</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- End contact-us -->
+    <!-- Start  page-footer Section-->
+    <footer class="page-footer dark-color-footer" id="page-footer">
+        <div class="overlay-photo-image-bg" data-bg-img="{% static 'assets/images/footerbg.jpg' %}"
+            data-bg-opacity=".25">
+        </div>
+        <div class="container">
+            <div class="row footer-cols">
+                <div class="col-12 col-md-8 col-lg-4  footer-col "><img class="img-fluid footer-logo" loading="lazy"
+                        src="{% static 'assets/images/rgtech-logo.png' %}" alt="logo" width="40px" />
+                    <div class="footer-col-content-wrapper">
+                        <p class="footer-text-about-us ">
+                            Contact us today to discuss your software projects and business needs. Our team delivers
+                            reliable solutions, scalable systems, and innovative technologies tailored to your goals.
+                        </p>
+                    </div>
+                    <div class="form-area ">
+                        <div class="mailchimp-form ">
+                            <form class="one-field-form" method="post" action="javascript:void(0)">
+                                <div class="field-group ">
+                                    <label class="email-label" for="email-input"> Subscribe to our news letter</label>
+                                    <input class="email-input " type="email" value="" name="EMAIL" id="email-input"
+                                        placeholder="Email Address" autocomplete="off" />
+                                    <div class="cta-area">
+                                        <input class="btn-solid subscribe-btn" type="submit" value="Subscribe"
+                                            name="subscribe" />
+                                    </div>
+                                </div><span class="email-notice">*we will not share your personal info</span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2  footer-col ">
+                    <h2 class=" footer-col-title    ">useful links</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu ">
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">Google</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">Dribbble</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">linkedIn</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">wikipedia</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 footer-col ">
+                    <h2 class=" footer-col-title    ">Resources</h2>
+                    <div class="footer-col-content-wrapper">
+                        <ul class="footer-menu">
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">support</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">dashboard</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">drivers</a>
+                            </li>
+                            <li class="footer-menu-item"><i class="bi bi-arrow-right icon "></i><a
+                                    class="footer-menu-link" href="#0">projects</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12     col-lg-4 footer-col ">
+                    <h2 class=" footer-col-title    ">contact information</h2>
+                    <div class="footer-col-content-wrapper">
+                        <div class="contact-info-card"><i class="bi bi-envelope icon"></i><a
+                                class="text-lowercase  info" href="mailto:hr@rgtech.org.in">hr@rgtech.org.in</a>
+                        </div>
+                        <div class="contact-info-card"><i class="bi bi-geo-alt icon"></i><span
+                                class="text-lowercase  info">H.O: # 79-16-23/1, RAJAHMUNDRY -
+                                533103.</span></div>
+                        <div class="contact-info-card"><i class="bi bi-phone icon"></i><a class="info"
+                                href="tel:+91 96037 26459">+91 96037 26459 </a></div>
+                        <div class="contact-info-card">
+                            <div class="social-icons">
+                                <div class="sc-wrapper dir-row sc-size-32">
+                                    <ul class="sc-list">
+                                        <li class="sc-item " title="Facebook"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="youtube"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-youtube sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="instagram"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-instagram sc-icon"></i></a>
+                                        </li>
+                                        <li class="sc-item " title="X"><a class="sc-link" href="#0"
+                                                title="social media icon"><i class="fab fa-x-twitter sc-icon"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6 d-flex justify-content-start">
+                        <p class="creadits">
+
+
+                            &copy; 2026
+                            Created by:
+
+                            <a class="link" href="http://www.rgtech.org.in">RT Tech</a>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-end">
+                        <div class="terms-links"><a href="#0">Terms of Use </a>
+                            | <a href="#0" data-bs-toggle="modal" data-bs-target="#privacyPolicyModal">Privacy
+                                Policy.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End  page-footer Section-->
+    <!-- Start loading-screen Component-->
+    <div class="loading-screen" id="loading-screen"><span class="bar top-bar"></span><span
+            class="bar down-bar"></span><span class="progress-line"></span><span class="loading-counter"> </span></div>
+    <!-- End loading-screen Component-->
+    <!-- Start back-to-top Button-->
+    <div class="back-to-top" id="back-to-top"><i class="bi bi-arrow-up icon "></i>
+    </div>
+    <!-- End back-to-top Button-->
+    <!-- Start privacy-policy-modal-->
+
+    <!-- End privacy-policy-modal-->
+
+    <!--     JQuery     -->
+    <script src="{% static 'js/vendors/jquery-3.6.1.min.js' %}"></script>
+
+    <!--     bootstrap     -->
+    <script src="{% static 'js/vendors/bootstrap.bundle.min.js' %}"></script>
+
+    <!--     wow     -->
+    <script src="{% static 'js/vendors/wow.min.js' %}"></script>
+
+    <!--     main     -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

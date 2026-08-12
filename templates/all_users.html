@@ -1,0 +1,735 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'admin/assets/images/favicon.png' %}" type="image/ico" />
+    <title>Admin Dashboard</title>
+    <!-- CSS -->
+    <!-- Bootstrap -->
+    <link href="{% static 'admin/assets/plugins/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'admin/assets/fonts/cryptocoins.css' %}" rel="stylesheet">
+    <!-- Simple line icons -->
+    <link href="{% static 'admin/assets/css/simple-line-icons.css' %}" rel="stylesheet">
+    <!-- Font awesome icons -->
+    <link href="{% static 'admin/assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'admin/assets/css/font-awesome-animation.min.css' %}" rel="stylesheet">
+    <!-- Custom Style -->
+    <link href="{% static 'admin/assets/plugins/select2/select2.min.css' %}" rel="stylesheet">
+    <link href="{% static 'admin/assets/css/custom.css' %}" rel="stylesheet">
+    <link id="ui-current-skin" href="{% static 'admin/assets/css/skin-colors/skin-yellow.css' %}" rel="stylesheet">
+    <link href="{% static 'admin/assets/css/media.css' %}" rel="stylesheet">
+    <!-- Charts -->
+    <link href="{% static 'admin/assets/plugins/rickshaw/rickshaw.min.css' %}" rel="stylesheet">
+    <!-- Custom Font -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .dashboard-card {
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Card colors */
+        .all-users {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .pending-users {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+        }
+
+        .accepted-users {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .rejected-users {
+            background: linear-gradient(135deg, #ff6a6a, #ff4757);
+        }
+
+        .count {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body class="nav-md preloader-off developer-mode">
+    <div class="pace-cover"></div>
+    <div id="st-container" class="st-container st-effect">
+        <!-- MAIN PAGE CONTAINER -->
+        <div class="container body">
+            <div class="main_container">
+                <!-- LEFT PRIMARY NAVIGATION -->
+                <div class="col-md-3 left_col">
+                    <div class="scroll-view">
+                        <div class="navbar nav_title">
+                            <h1 class="logo_wrapper">
+                                <a href="{% url 'admin_dashboard' %}" class="site_logo">
+                                    <img class="logo" src="{% static 'admin/assets/images/admin_logo.png' %}"
+                                        alt="logo">
+                                    <span class="logo-text">Admin</span>
+                                </a>
+                            </h1>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>General</h3>
+                                <div class="clearfix"></div>
+                                <ul class="nav side-menu">
+                                    <li><a href="{% url 'admin_dashboard' %}"><i
+                                                class="icon-home icons text text-warning"></i>
+                                            <span>Home
+                                            </span></span></a>
+                                        <!-- ================= User Management ================= -->
+                                    <li class="active">
+                                        <a>
+                                            <i class="icon-people icons text text-light"></i>
+                                            <span>User Management</span>
+                                            <span class="fa fa-angle-down"></span>
+                                        </a>
+
+                                        <ul class="nav child_menu" style="display:block">
+
+                                            <li>
+                                                <a href="{% url 'pending_users' %}" class="active">
+                                                    <i class="fa fa-clock-o text-warning"></i>
+                                                    <span>Pending Users</span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{% url 'accepted_users' %}">
+                                                    <i class="fa fa-check-circle text-success"></i>
+                                                    <span>Accepted Users</span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{% url 'rejected_users' %}">
+                                                    <i class="fa fa-times-circle text-danger"></i>
+                                                    <span>Rejected Users</span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{% url 'all_users' %}">
+                                                    <i class="fa fa-users text-primary"></i>
+                                                    <span>All Users</span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+                                    <!-- ================= Dataset ================= -->
+                                    <li>
+                                        <a>
+                                            <i class="icon-folder icons" style="color:brown;"></i>
+                                            <span>Dataset
+                                                <span class="label label-warning">.csv</span>
+                                            </span>
+                                            <span class="fa fa-angle-down"></span>
+                                        </a>
+
+                                        <ul class="nav child_menu">
+
+                                            <li>
+                                                <a href="{% url 'upload_dataset' %}">
+                                                    <i class="fa fa-upload text-info"></i>
+                                                    <span>Upload Dataset</span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="{% url 'view_dataset' %}">
+                                                    <i class="fa fa-table text-success"></i>
+                                                    <span>View Dataset</span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <!-- ================= Existing Algorithms ================= -->
+                                    <li>
+                                        <a>
+                                            <i class="icon-settings icons text-primary"></i>
+                                            <span>Existing Algorithms</span>
+                                            <span class="fa fa-angle-down"></span>
+                                        </a>
+
+                                        <ul class="nav child_menu">
+
+                                            <!-- Decision Trees -->
+                                            <li>
+                                                <a href="{% url 'decision' %}">
+                                                    <i class="fa fa-sitemap text-success"></i>
+                                                    <span>Decision Trees</span>
+                                                </a>
+                                            </li>
+
+                                            <!-- SVM -->
+                                            <li>
+                                                <a href="{% url 'svm' %}">
+                                                    <i class="fa fa-sliders text-info"></i>
+                                                    <span>Support Vector Machines</span>
+                                                </a>
+                                            </li>
+
+                                            <!-- Random Forest -->
+                                            <li>
+                                                <a href="{% url 'random' %}">
+                                                    <i class="fa fa-tree text-success"></i>
+                                                    <span>Random Forest</span>
+                                                </a>
+                                            </li>
+
+                                            <!-- Logistic Regression -->
+                                            <li>
+                                                <a href="{% url 'logistic' %}">
+                                                    <i class="fa fa-line-chart text-primary"></i>
+                                                    <span>Logistic Regression</span>
+                                                </a>
+                                            </li>
+
+                                            <!-- KNN -->
+                                            <li>
+                                                <a href="{% url 'k_nearest' %}">
+                                                    <i class="fa fa-users text-warning"></i>
+                                                    <span>k-Nearest Neighbors</span>
+                                                </a>
+                                            </li>
+
+                                            <!-- Naive Bayes -->
+                                            <li>
+                                                <a href="{% url 'naive' %}">
+                                                    <i class="fa fa-calculator text-danger"></i>
+                                                    <span>Naïve Bayes</span>
+                                                </a>
+                                            </li>
+
+                                            <!-- Neural Network -->
+                                            <li>
+                                                <a href="{% url 'neural' %}">
+                                                    <i class="fa fa-connectdevelop text-purple"></i>
+                                                    <span>Neural Networks</span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+                                    <!-- ================= Proposed System ================= -->
+                                    <li>
+                                        <a>
+                                            <i class="fa fa-shield text-danger"></i>
+                                            <span>Proposed System</span>
+                                            <span class="fa fa-angle-down"></span>
+                                        </a>
+
+                                        <ul class="nav child_menu">
+
+                                            <li>
+                                                <a href="{% url 'aml_attack' %}">
+                                                    <i class="fa fa-lock text-success"></i>
+                                                    <span>
+                                                        AML Attack Classification<br>
+                                                        &nbsp;&nbsp; Framework for NIDS
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'graph' %}">
+                                            <i class="icon-chart icons"></i>
+                                            <span>Graph Analysis</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- /sidebar menu -->
+                        <!-- /menu footer buttons -->
+                        <div class="sidebar-footer hidden-small">
+                            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                                <span class="icon-settings icons" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" id="btnFullscreen" data-placement="top" title="FullScreen">
+                                <span class="icon-size-fullscreen icons" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                                <span class="icon-eye icons" aria-hidden="true"></span>
+                            </a>
+                            <a data-toggle="tooltip" data-placement="top" title="Logout" href="{% url 'admin-login' %}">
+                                <span class="icon-power icons" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                        <!-- /menu footer buttons -->
+                    </div>
+                </div>
+                <!-- TOP SECONDARY NAVIGATION -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <ul class="nav navbar-nav navbar-left new-navbar-right">
+                            <li class="toggle-li">
+                                <div class="nav toggle burger-nav">
+                                    <a id="menu_toggle">
+                                        <div class="burger">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="megamenu-li">
+                                <!-- megamenu -->
+                                <div class="megamenu-dropdown-wrapper">
+                                    <a class="megamenu-dropdown-trigger megamenu-trigger" href="#0">
+                                        <i class="icon-wallet icons"></i>
+                                        <span> The Wallet </span>
+                                        <span class="fa fa-angle-down"></span>
+                                    </a>
+                                </div>
+                                <!-- megamenu -->
+                            </li>
+                            <li class="dropdown-menu-1-li">
+                                <div class="dropdown-menu-1 dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown"><i class="icon-feed icons"></i>
+                                        Reports
+                                        <span class="fa fa-angle-down"></span></a>
+                                    <ul class="dropdown-menu archive">
+                                        <li><a href="#"><span class="pull-left">...8b0133 (0.01
+                                                    BTC)</span> <span
+                                                    class="label label-success pull-right">Success</span></a></li>
+                                        <li><a href="#"><span class="pull-left">...8b0133 (3.51
+                                                    LTC)</span> <span
+                                                    class="label label-success pull-right">Success</span></a></li>
+                                        <li><a href="#"><span class="pull-left">...9c3286 (0.07
+                                                    ETH)</span> <span
+                                                    class="label label-warning pull-right">Pending</span></a></li>
+                                        <li><a href="#"><span class="pull-left">...8b0133 (0.01
+                                                    BTC)</span> <span
+                                                    class="label label-success pull-right">Success</span></a></li>
+                                        <li><a href="#"><span class="pull-left">...9c3286 (0.07
+                                                    BTC)</span> <span
+                                                    class="label label-success pull-right">Success</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="button-menu-right">Menu Right
+                                <button type="button" class="btn btn-sm btn-toggle" data-toggle="button"
+                                    aria-pressed="true" autocomplete="off">
+                                    <div class="handle"></div>
+                                </button>
+                            </li>
+                        </ul> <!-- top menu ul -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li id="st-trigger-effects" class="">
+                                <a data-effect="st-effect" class="trigger-sidebar">
+                                    <i class="fa fa-th"></i>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="{% static 'admin/assets/images/profile-pic.jpg' %}" alt="">
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="badge bg-red pull-right">50%</span>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:;">Help</a></li>
+                                    <li><a href="{% url 'admin-login' %}"><i class="fa fa-sign-out pull-right"></i> Log
+                                            Out</a></li>
+                                </ul>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle info-number faa-horizontal"
+                                    data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope faa-horizontal animated"></i>
+                                    <span class="badge faa-horizontal animated">3</span>
+                                </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                    <li>
+                                        <a>
+                                            <span class="image"><img
+                                                    src="{% static 'admin/assets/images/profile-pic.jpg' %}"
+                                                    alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img
+                                                    src="{% static 'admin/assets/images/profile-pic.jpg' %}"
+                                                    alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">4 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img
+                                                    src="{% static 'admin/assets/images/profile-pic.jpg' %}"
+                                                    alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">6 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="search-wrap">
+                                <a href="javascript:;" id="btn-search" class="search-nav">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li class="language">
+                                <a href="javascript:;" class="lang-swich dropdown-toggle" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="{% static 'admin/assets/images/united-kingdom.svg' %}" alt="uk">
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PAGE CONTENT -->
+                <div class="right_col right_col_exchange" role="main">
+                    <div class="exchange-section data_background text-center" data-background=''>
+                        <h1 class="text-center mb-5">All Registered Users</h1>
+
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-12 ps-5">
+
+                                    <div class="card shadow-lg border-0 dashboard-card" style="background-color:#fff;">
+
+                                        <div class="card-body">
+
+                                            <h4 class="mb-4 text-dark fw-bold">All Users</h4>
+
+                                            <div class="table-responsive">
+    <table class="table table-hover align-middle text-dark">
+     
+
+
+        <thead class="border-bottom">
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th class="text-center">Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.mobile }}</td>
+
+                <td class="text-center">
+    {% if user.status == "APPROVED" %}
+        <span class="badge"
+              style="background-color:#198754;color:white;">
+            Approved
+        </span>
+
+    {% elif user.status == "DENIED" %}
+        <span class="badge"
+              style="background-color:#dc3545;color:white;">
+            Rejected
+        </span>
+
+    {% else %}
+        <span class="badge"
+              style="background-color:#ffc107;color:black;">
+            Pending
+        </span>
+    {% endif %}
+</td>
+
+
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center text-muted">
+                    No users found
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="spacer_30"></div>
+                    <div class="buy_now">
+                        <a href="{% url 'aml_attack' %}">
+                            <div class="btn-hover-text">
+                                <p class="element-box-shadow text-bold">Proposed System</p>
+                            </div>
+                            <button class="button_buy_now text-bold element-box-shadow"><i
+                                    class="fa fa-shield icons"></i>
+                            </button>
+                        </a>
+                        <div class="btn-small">new</div>
+                    </div>
+                    <a href="#" class="scrollToTop"><i class="fa fa-chevron-up text-white" aria-hidden="true"></i></a>
+                    <!-- PAGE FOOTER -->
+                    <footer>
+                        <div class="pull-right">
+                            All Rights Reserved &copy; By
+                            <a href="https://www.rgtech.org.in">RG Tech</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                </div>
+                <!-- RIGHT SIDE SIDEBAR NAVIGATION -->
+                <div class="right-side">
+                    <nav class="st-menu st-effect">
+                        <span class="fa fa-times close-sidebar" id="close-sidebar"></span>
+                        <table class="table table-cryptic dataTable no-footer" id="dataTable_crypto_mining_pool"
+                            role="grid">
+                            <thead>
+                                <tr role="row">
+                                    <th colspan="2" rowspan="1">Currency <i class="fa fa-sort"></i></th>
+                                    <th class="text-right">Price <i class="fa fa-sort"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc BTC" title="BTC"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Bitcoin</a>
+                                        </h6>
+                                        <small class="text-muted">BTC</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 11,723.40</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc ETH" title="ETH"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Ethereum</a>
+                                        </h6>
+                                        <small class="text-muted">ETH</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 1,070.39</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc XRP" title="XRP"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Ripple</a></h6>
+                                        <small class="text-muted">XRP</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 1.64</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc ADA" title="ADA"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Cardano</a>
+                                        </h6>
+                                        <small class="text-muted">ADA</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 0.68</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc LTC" title="LTC"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Litecoin</a>
+                                        </h6>
+                                        <small class="text-muted">LTC</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 198.88</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc XEM" title="XEM"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> NEM</a></h6>
+                                        <small class="text-muted">XEM</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 1.11</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc NEO" title="NEO"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> NEO</a></h6>
+                                        <small class="text-muted">NEO</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 149.15</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc DASH" title="DASH"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Dash</a></h6>
+                                        <small class="text-muted">DASH</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 865.27</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc EOS" title="EOS"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> EOS</a></h6>
+                                        <small class="text-muted">EOS</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 10.57</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc XMR" title="XMR"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Monero</a></h6>
+                                        <small class="text-muted">XMR</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 336.11</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc ETC" title="ETC"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Ethereum
+                                                Classic</a></h6>
+                                        <small class="text-muted">ETC</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 31.35</p>
+                                    </td>
+                                </tr>
+                                <tr role="row">
+                                    <td><span><a href="#"><i class="cc QTUM" title="QTUM"></i></a></span></td>
+                                    <td>
+                                        <h6><a href="#" class="d-none d-md-block d-lg-block d-xl-block"> Qtum</a></h6>
+                                        <small class="text-muted">QTUM</small>
+                                    </td>
+                                    <td class="text-right">
+                                        <p><span>$</span> 38.18</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </nav>
+                </div>
+            </div>
+            <!-- RIGHT SIDE: SEARCH FORM -->
+            <div class="search search-main">
+                <div id="btn-search-close" class="btn btn--search-close" aria-label="Close search form">
+                    <i class="fa fa-times"></i>
+                </div>
+                <form class="search__form" action="javascript:void(0)">
+                    <input class="search__input" name="search" type="search" placeholder="Search Users..."
+                        autocapitalize="off" spellcheck="false" />
+                    <span class="search__info">Hit enter to search or ESC to close</span>
+                </form>
+            </div>
+            <!-- JS SCRIPTS -->
+            <script src="{% static 'admin/assets/js/jquery.min.js' %}"></script>
+            <script src="{% static 'admin/assets/js/jquery.scrollbar.min.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/modernizr/modernizr.custom.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/classie/classie.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/bootstrap/bootstrap.min.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/select2/select2.min.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/highcharts/highcharts.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/highcharts/exporting.js' %}"></script>
+            <!-- Custom Charts Scripts -->
+            <script src="{% static 'admin/assets/js/charts.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/amcharts/amcharts.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/amcharts/depthChart/serial.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/amcharts/depthChart/export.min.js' %}"></script>
+            <script src="{% static 'admin/assets/plugins/amcharts/depthChart/light.js' %}"></script>
+            <script src="{% static 'admin/assets/js/charts-amcharts.js' %}"></script>
+            <!-- Custom Theme Scripts -->
+            <script src="{% static 'admin/assets/js/custom.min.js' %}"></script>
+            <script src="{% static 'admin/assets/js/preloader.min.js' %}"></script>
+        </div>
+        <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9c3fe22bfe32be8a',t:'MTc2OTQyOTE3OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js' %}';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
